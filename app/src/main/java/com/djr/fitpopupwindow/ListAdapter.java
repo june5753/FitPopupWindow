@@ -44,7 +44,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListHolder> {
                 fitPopupUtil.setOnClickListener(new FitPopupUtil.OnCommitClickListener() {
                     @Override
                     public void onClick(String reason) {
-                        Toast.makeText(mContext,reason,Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, reason, Toast.LENGTH_SHORT).show();
                     }
                 });
                 fitPopupUtil.showPopup(v);

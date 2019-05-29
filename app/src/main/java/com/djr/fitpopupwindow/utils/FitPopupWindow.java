@@ -66,21 +66,20 @@ public class FitPopupWindow extends PopupWindow implements PopupWindow.OnDismiss
         windowPos = calculatePopWindowPos(anchorView, contentView);
 
         mFitPopupWindowLayout = new FitPopupWindowLayout(context);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
-                ViewGroup.LayoutParams.MATCH_PARENT, getHeight() - FitPopupWindowLayout.SHARP_HEIGHT);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, getHeight() - FitPopupWindowLayout.SHARP_HEIGHT);
         layoutParams.bottomMargin = FitPopupWindowLayout.SHARP_HEIGHT;
 
         contentView.setLayoutParams(layoutParams);
-        mFitPopupWindowLayout.setOrientation(getHorizontal(), getVertical()
-                , getXCoordinate());
+        mFitPopupWindowLayout.setOrientation(getHorizontal(), getVertical(), getXCoordinate());
         mFitPopupWindowLayout.addView(contentView);
+
         setContentView(mFitPopupWindowLayout);
     }
 
 
     public void show() {
-        showAtLocation(anchorView, Gravity.TOP | Gravity.END
-                , windowPos[0], windowPos[1]);
+        showAtLocation(anchorView, Gravity.TOP | Gravity.END, windowPos[0], windowPos[1]);
+
         update();
         Window window = context.getWindow();
         WindowManager.LayoutParams lp = window.getAttributes();
@@ -121,8 +120,7 @@ public class FitPopupWindow extends PopupWindow implements PopupWindow.OnDismiss
         setHorizontal(isNeedShowLeft ? FitPopupWindowLayout.LEFT : FitPopupWindowLayout.RIGHT);
         setVertical(isNeedShowUp ? FitPopupWindowLayout.UP : FitPopupWindowLayout.DOWN);
 
-//        windowPos[0] = isNeedShowLeft ?
-//                anchorLoc[0] - windowWidth : anchorLoc[0] + anchorWidth;
+//        windowPos[0] = isNeedShowLeft ?anchorLoc[0] - windowWidth : anchorLoc[0] + anchorWidth;
 
         windowPos[0] = (screenWidth - mWindowWidth) / 2;
 
